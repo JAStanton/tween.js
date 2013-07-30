@@ -83,6 +83,20 @@ test( "Tween non-null property", function() {
 
 });
 
+test( "Tween function property", function() {
+
+	var obj = { x: function() { return true; } },
+		t = new TWEEN.Tween( obj );
+
+	t.to( { x: function() {} } );
+	t.start( 0 );
+	t.update( 1000 );
+
+	ok( typeof obj.x === "function" );
+	ok( obj.x() );
+
+});
+
 test( "Tween null property", function() {
 
 	var obj = { },

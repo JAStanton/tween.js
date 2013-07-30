@@ -279,7 +279,7 @@ TWEEN.Tween = function ( object ) {
 
 				_object[ property ] = _interpolationFunction( end, value );
 
-			} else {
+			} else if ( typeof end !== "function" ) {
 
 				if ( typeof(end) === "string" ) {
 					end = start + parseFloat(end, 10);
